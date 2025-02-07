@@ -9,14 +9,18 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="musicBean"
-          class="com.alshv.springcourse.spring_app1_alshv.RockMusic">
-    </bean>
+    <bean id="rockMusic" class="com.alshv.springcourse.spring_app1_alshv.RockMusic"/>
+    <bean id="classicalMusic" class="com.alshv.springcourse.spring_app1_alshv.ClassicalMusic"/>
+    <bean id="rapMusic" class="com.alshv.springcourse.spring_app1_alshv.RapMusic"/>
 
-    <bean id="musicPlayer"
-          class="com.alshv.springcourse.spring_app1_alshv.MusicPlayer">
-        <property name="music" ref="musicBean"/>
-
+    <bean id="musicPlayer" class="com.alshv.springcourse.spring_app1_alshv.MusicPlayer">
+        <property name="musicList">
+            <list>
+                <ref bean="rockMusic"/>
+                <ref bean="classicalMusic"/>
+                <ref bean="rapMusic"/>
+            </list>
+        </property>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
