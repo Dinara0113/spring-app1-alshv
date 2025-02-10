@@ -1,13 +1,21 @@
 package com.alshv.springcourse.spring_app1_alshv;
 
-public class MusicPlayer {
-    private Music music;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-    public MusicPlayer(Music music) {
-        this.music = music;
+@Component
+public class MusicPlayer {
+    private RockMusic rockMusic;
+    private ClassicalMusic classicalMusic;
+
+    @Autowired
+    public MusicPlayer(RockMusic rockMusic, ClassicalMusic classicalMusic) {
+        this.rockMusic = rockMusic;
+        this.classicalMusic = classicalMusic;
     }
 
-    public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+        return "Playing: " + classicalMusic.getSong();
+
     }
 }
