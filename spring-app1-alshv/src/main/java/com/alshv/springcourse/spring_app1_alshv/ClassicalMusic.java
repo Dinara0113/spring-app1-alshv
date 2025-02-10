@@ -4,7 +4,7 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-@Component
+
 public class ClassicalMusic implements Music {
     @PostConstruct
     public void doMyInit() {
